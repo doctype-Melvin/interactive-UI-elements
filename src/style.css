@@ -16,6 +16,8 @@ html, body, .wrapper, .content {
     --darkest-shade: #1d3557;
 }
 
+
+/* Page Grid Layout -- Start */
 .content {
     display: grid;
     grid-template-rows: 0.5fr 2fr 5fr 0.5fr;
@@ -45,3 +47,7 @@ html, body, .wrapper, .content {
     grid-area: footer;
     background-color: var(--lighter-shade);
 }
+
+/* Page Grid Layout -- End */
+
+/* Navigation Bar Styling -- Start */
