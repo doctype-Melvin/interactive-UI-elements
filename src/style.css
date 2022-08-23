@@ -54,6 +54,7 @@ html, body, .wrapper, .content {
 /* Navigation Bar Styling -- Start */
 .mobile {
     display: none;
+    text-align: center;
 }
 
 #dropdown{
@@ -92,5 +93,9 @@ html, body, .wrapper, .content {
     }
     .mobile {
         display: block;
+    }
+
+    .img {
+        border: solid 1px var(--main-color);
     }
 }
