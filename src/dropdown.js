@@ -1,11 +1,19 @@
-// First hides links from displa
+// First hides links from display
 // then lets them drop down on hover
-function dropLinks(element){ // element = selector (class, id, data...)
+function interactiveLinks(element){ // element = selector (class, id, data...)
     const navParent = document.querySelector(element) 
     const links = [...navParent.children]
     links.forEach(item => item.style.display = 'none')
-    navParent.addEventListener('mouseover', () => console.log('Hover'))
-    console.log(navParent)
+    navParent.addEventListener('mouseover', () => {
+        links.forEach(item => item.style.display = 'block')
+    })
+    navParent.addEventListener('mouseout', () => {
+        links.forEach(item => item.style.display = 'none')
+    })
 }
 
-dropLinks('.group1')
+interactiveLinks('.group1')
+
+function dropLinks(){
+    
+}
