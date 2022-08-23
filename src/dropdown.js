@@ -1,5 +1,11 @@
-const dropdown = document.querySelectorAll('#dropdown')
-dropdown.forEach(item => item.addEventListener('mouseover', () => console.log('Hovering')))
-// Dropdown is a node list of navigation elements
-// Each element has its own set of links
-// Links should only be visible on hover
+// First hides links from displa
+// then lets them drop down on hover
+function dropLinks(element){ // element = selector (class, id, data...)
+    const navParent = document.querySelector(element) 
+    const links = [...navParent.children]
+    links.forEach(item => item.style.display = 'none')
+    navParent.addEventListener('mouseover', () => console.log('Hover'))
+    console.log(navParent)
+}
+
+dropLinks('.group1')
