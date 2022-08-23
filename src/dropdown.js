@@ -13,7 +13,5 @@ function interactiveLinks(element){ // element = selector (class, id, data...)
 }
 
 interactiveLinks('.group1')
-
-function dropLinks(){
-    
-}
+interactiveLinks('.group2')
+interactiveLinks('.group3')

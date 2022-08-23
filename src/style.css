@@ -52,9 +52,17 @@ html, body, .wrapper, .content {
 /* Page Grid Layout -- End */
 
 /* Navigation Bar Styling -- Start */
-#dropdown {
+#dropdown{
     position: relative;
     display: inline-block;
+    margin-right: 25px;
+}
+
+.dropContent {
+    position: absolute;
+    z-index: 1;
+    min-width: 100px;
+    background-color: var(--main-color);
 }
 
 #dropdown:hover {
@@ -65,8 +73,10 @@ html, body, .wrapper, .content {
     padding: 5px 9px;
     text-decoration: none;
     color: var(--darkest-shade);
+    display: inline-block;
 }
 
 #dropdown a:hover {
     background-color: var(--lighter-shade);
+    min-width: 100%;
 }
