@@ -11,3 +11,5 @@ talkPic.style.width = '50px'
 talkPic.src = talk
 
 mobileContainer.append(sunPic, talkPic)
+
+// Write fn that creates images
