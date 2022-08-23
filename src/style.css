@@ -52,6 +52,10 @@ html, body, .wrapper, .content {
 /* Page Grid Layout -- End */
 
 /* Navigation Bar Styling -- Start */
+.mobile {
+    display: none;
+}
+
 #dropdown{
     position: relative;
     display: inline-block;
@@ -79,4 +83,14 @@ html, body, .wrapper, .content {
 #dropdown a:hover {
     background-color: var(--lighter-shade);
     min-width: 100%;
+}
+/* Navigation Bar Styling -- End */
+
+@media screen and (max-width: 400px) {
+    .dropdown {
+        display: none;
+    }
+    .mobile {
+        display: block;
+    }
 }
