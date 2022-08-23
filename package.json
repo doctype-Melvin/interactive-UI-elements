@@ -1,8 +1,8 @@
 {
   "name": "interactive-elements",
   "version": "1.0.0",
-  "description": "",
-  "private": true,
+  "description": "Make elements drop down lists on hover",
+  "private": false,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "webpack --watch",
@@ -10,7 +10,7 @@
     "start": "webpack serve --open"
   },
   "keywords": [],
-  "author": "",
+  "author": "Melvin Speckamp <doctype.melvin@gamil.com> (www.github.com/doctype-Melvin)",
   "license": "ISC",
   "devDependencies": {
     "css-loader": "^6.7.1",
