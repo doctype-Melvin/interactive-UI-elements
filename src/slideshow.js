@@ -39,9 +39,12 @@ main.append(slides)
 
 const dots = document.querySelectorAll('.dot')
 const imgSlides = [...document.querySelectorAll('.slide')]
+let currentIndex = ''
 dots.forEach(dot => dot.addEventListener('click', (e) => { // Makes dots clickable and shows corresponding img
     document.querySelector('.slideshow').style.cssText += `background-image: url(${images[dot.dataset.index]})`
     dots.forEach(dot => dot.classList.remove('active'))
     e.target.classList.add('active')
+    currentIndex = dot.dataset.index
 }))
 
+// Make arrows flip through the bg images
