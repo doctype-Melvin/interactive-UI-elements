@@ -118,6 +118,7 @@ html, body, .wrapper, .content {
     background-size: contain;
     background-repeat: no-repeat;
     background-position: top;
+    padding: 20px;
 }
 
 .controls {
@@ -146,7 +147,6 @@ html, body, .wrapper, .content {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 12px;
 }
 
 .dot {
