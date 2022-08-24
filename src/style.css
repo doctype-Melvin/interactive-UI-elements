@@ -50,6 +50,9 @@ html, body, .wrapper, .content {
 .footer {
     grid-area: footer;
     background-color: var(--lighter-shade);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Page Grid Layout -- End */
@@ -93,7 +96,57 @@ html, body, .wrapper, .content {
 /* Slideshow -- Start */
 .slide {
     max-width: 150px;
+    display: none;
 }
+
+.slideshow, .controls {
+    min-width: 500px;
+    min-height: 300px;
+}
+
+.controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    color: var(--lighter-shade);
+}
+
+.controls a {
+    cursor: pointer;
+    font-size: 2rem;
+    width: 2rem;
+    border-radius: 3px;
+    transition: 0.3s ease;
+}
+
+.controls a:hover {
+    background-color: var(--lighter-shade);
+    color: var(--darkest-shade);
+}
+
+.dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 3px;
+    background-color: var(--main-color);
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+}
+
+.active, .dot:hover {
+    background-color: var(--contrast);
+}
+
+
 /* Slideshow -- End */
 
 /* Media Query Mobile -- Start */

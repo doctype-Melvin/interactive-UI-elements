@@ -12,4 +12,31 @@ slides.classList.add('slideshow')
 
 appendImg(images, slides, 'slide')
 
+// Slideshow control arrows
+const controls = document.createElement('div')
+controls.classList.add('controls')
+const prev = document.createElement('a')
+prev.classList.add('prev')
+const next = document.createElement('a')
+next.classList.add('next')
+prev.textContent = '<'
+next.textContent = '>'
+controls.append(prev, next)
+
+// Slideshow Dots
+const dotsContainer = document.createElement('div')
+dotsContainer.classList.add('dots')
+function createDots(array){
+    for (let i = 0; i < array.length; i++) {
+        let dot = document.createElement('div')
+        dot.classList.add('dot')
+        dot.dataset.index = array[i]
+        dotsContainer.append(dot)
+    }
+}
+createDots(images)
+
+slides.append(controls, dotsContainer)
 main.append(slides)
+const dots = document.querySelectorAll('.dot')
+dots.forEach(dot => dot.addEventListener('click', () => console.log(dot.dataset)))
