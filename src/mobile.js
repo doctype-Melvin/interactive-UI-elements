@@ -7,18 +7,15 @@ import whirlpool from './whirlpool-sea-water-svgrepo-com.svg'
 const mobileContainer = document.querySelector('.mobile')
 let icons = [sun, talk, waves, calendar, whirlpool]
 
-function createIcon(image) {
+export function imageFactory(image, classe) {
     const icon = new Image()
-    icon.style.width = '50px'
     icon.src = image
-    icon.classList.add('img')
-    icon.addEventListener('mouseover', () => icon.style.cursor = 'pointer')
-    icon.style.marginRight = '10px'
+    icon.classList.add(classe)
     return icon
 }
 
-function appendIcons(array) {
-    return array.map(item => mobileContainer.append(createIcon(item)))
+export function appendImg(array, section, classe) {
+    return array.map(item => section.append(imageFactory(item, classe)))
 }
 
-appendIcons(icons)
+appendImg(icons, mobileContainer, 'icon')

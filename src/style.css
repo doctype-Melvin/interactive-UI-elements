@@ -42,6 +42,9 @@ html, body, .wrapper, .content {
 .main {
     grid-area: main;
     background-color: var(--darker-shade);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .footer {
@@ -87,6 +90,13 @@ html, body, .wrapper, .content {
 }
 /* Navigation Bar Styling -- End */
 
+/* Slideshow -- Start */
+.slide {
+    max-width: 150px;
+}
+/* Slideshow -- End */
+
+/* Media Query Mobile -- Start */
 @media screen and (max-width: 400px) {
     .dropdown {
         display: none;
@@ -95,7 +105,11 @@ html, body, .wrapper, .content {
         display: block;
     }
 
-    .img {
+    .icon {
         border: solid 1px var(--main-color);
+        width: 50px;
+        margin-right: 10px;
+        cursor: pointer;
     }
 }
+/* Media Query Mobile -- Start */
