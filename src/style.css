@@ -95,13 +95,29 @@ html, body, .wrapper, .content {
 
 /* Slideshow -- Start */
 .slide {
-    max-width: 150px;
     display: none;
+}
+
+.slide, .activeSlide{
+    max-width: 150px;
+}
+.activeSlide {
+    display: block;
 }
 
 .slideshow, .controls {
     min-width: 500px;
     min-height: 300px;
+}
+
+.slideshow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: top;
 }
 
 .controls {
@@ -110,6 +126,7 @@ html, body, .wrapper, .content {
     align-items: center;
     text-align: center;
     color: var(--lighter-shade);
+    z-index: 1;
 }
 
 .controls a {
@@ -129,6 +146,7 @@ html, body, .wrapper, .content {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 12px;
 }
 
 .dot {

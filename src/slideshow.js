@@ -5,12 +5,10 @@ import pic4 from './mattia-bericchia-HCEC9-bydS0-unsplash.jpg'
 import pic5 from './wolfgang-hasselmann-uS0ZSzy-Vpg-unsplash.jpg'
 import { imageFactory, appendImg } from './mobile'
 
-const images = [pic1, pic2, pic3, pic4, pic5]
-const main = document.querySelector('.main')
-const slides = document.createElement('div')
+const images = [pic1, pic2, pic3, pic4, pic5] // Array of imported images
+const main = document.querySelector('.main') // Main section of page
+const slides = document.createElement('div') // Slideshow container
 slides.classList.add('slideshow')
-
-appendImg(images, slides, 'slide')
 
 // Slideshow control arrows
 const controls = document.createElement('div')
@@ -23,20 +21,27 @@ prev.textContent = '<'
 next.textContent = '>'
 controls.append(prev, next)
 
-// Slideshow Dots
+// Slideshow Dots - appends dots to dedicated container
 const dotsContainer = document.createElement('div')
 dotsContainer.classList.add('dots')
 function createDots(array){
     for (let i = 0; i < array.length; i++) {
         let dot = document.createElement('div')
         dot.classList.add('dot')
-        dot.dataset.index = array[i]
+        dot.dataset.index = i
         dotsContainer.append(dot)
     }
 }
-createDots(images)
+createDots(images) 
 
 slides.append(controls, dotsContainer)
 main.append(slides)
+
 const dots = document.querySelectorAll('.dot')
-dots.forEach(dot => dot.addEventListener('click', () => console.log(dot.dataset)))
+const imgSlides = [...document.querySelectorAll('.slide')]
+dots.forEach(dot => dot.addEventListener('click', (e) => { // Makes dots clickable and shows corresponding img
+    document.querySelector('.slideshow').style.cssText += `background-image: url(${images[dot.dataset.index]})`
+    dots.forEach(dot => dot.classList.remove('active'))
+    e.target.classList.add('active')
+}))
+
