@@ -38,32 +38,53 @@ slides.append(controls, dotsContainer)
 main.append(slides)
 
 const dots = document.querySelectorAll('.dot')
-const imgSlides = [...document.querySelectorAll('.slide')]
 let currentIndex = ''
 dots.forEach(dot => dot.addEventListener('click', (e) => { // Makes dots clickable and shows corresponding img
     document.querySelector('.slideshow').style.cssText += `background-image: url(${images[dot.dataset.index]})`
     dots.forEach(dot => dot.classList.remove('active'))
     e.target.classList.add('active')
-    currentIndex = dot.dataset.index
+    currentIndex = +dot.dataset.index
     console.log(currentIndex)
 }))
 
-// Make arrows flip through the bg images
-document.querySelectorAll('.arrow').forEach(arrow => arrow.addEventListener('click', () => {
-   if(arrow.className.includes('prev') && currentIndex == '' ) {
-    document.querySelector('.slideshow').style.cssText += `background-image: url(${images[images.length-1]})`
-    currentIndex = images.length-1
-   } else if (arrow.className.includes('prev')) {
-       document.querySelector('.slideshow').style.cssText += `background-image: url(${images[currentIndex-1]})`
-       currentIndex = currentIndex-1
-       console.log(currentIndex)
-    } else if (arrow.className.includes('next') && currentIndex < images.length-1) {
-    if(currentIndex <= images.length-1){
-        document.querySelector('.slideshow').style.cssText += `background-image: url(${images[+currentIndex+1]})`
-    currentIndex = +currentIndex+1
-    }
-    } else if (arrow.className.includes('next') && currentIndex == images.length-1) {
+const startShow = (() => {
     document.querySelector('.slideshow').style.cssText += `background-image: url(${images[0]})`
+    dots[0].classList.add('active')
     currentIndex = 0
+})()
+
+
+function moveIndex(arrow) {
+    return (arrow == 'next') ? currentIndex = currentIndex+1 : 
+    (arrow == 'prev') ? currentIndex = currentIndex-1 : 'Loco'
 }
+
+function moveDots(index) {
+
+}
+
+document.querySelectorAll('.arrow').forEach(arrow => arrow.addEventListener('click', (e) => {
+    console.log(moveIndex(e.target.classList[0]))
 }))
+
+
+
+// Make arrows flip through the bg images
+// document.querySelectorAll('.arrow').forEach(arrow => arrow.addEventListener('click', () => {
+//     if(arrow.className.includes('prev') && currentIndex == '' ) {
+//      document.querySelector('.slideshow').style.cssText += `background-image: url(${images[images.length-1]})`
+//      currentIndex = images.length-1
+//     } else if (arrow.className.includes('prev')) {
+//         document.querySelector('.slideshow').style.cssText += `background-image: url(${images[currentIndex-1]})`
+//         currentIndex = currentIndex-1
+//         console.log(currentIndex)
+//      } else if (arrow.className.includes('next') && currentIndex < images.length-1) {
+//      if(currentIndex <= images.length-1){
+//          document.querySelector('.slideshow').style.cssText += `background-image: url(${images[+currentIndex+1]})`
+//      currentIndex = +currentIndex+1
+//      }
+//      } else if (arrow.className.includes('next') && currentIndex == images.length-1) {
+//      document.querySelector('.slideshow').style.cssText += `background-image: url(${images[0]})`
+//      currentIndex = 0
+//  }
+//  }))
