@@ -14,9 +14,9 @@ slides.classList.add('slideshow')
 const controls = document.createElement('div')
 controls.classList.add('controls')
 const prev = document.createElement('a')
-prev.classList.add('prev')
+prev.classList.add('prev', 'arrow')
 const next = document.createElement('a')
-next.classList.add('next')
+next.classList.add('next', 'arrow')
 prev.textContent = '<'
 next.textContent = '>'
 controls.append(prev, next)
@@ -45,6 +45,25 @@ dots.forEach(dot => dot.addEventListener('click', (e) => { // Makes dots clickab
     dots.forEach(dot => dot.classList.remove('active'))
     e.target.classList.add('active')
     currentIndex = dot.dataset.index
+    console.log(currentIndex)
 }))
 
 // Make arrows flip through the bg images
+document.querySelectorAll('.arrow').forEach(arrow => arrow.addEventListener('click', () => {
+   if(arrow.className.includes('prev') && currentIndex == '' ) {
+    document.querySelector('.slideshow').style.cssText += `background-image: url(${images[images.length-1]})`
+    currentIndex = images.length-1
+   } else if (arrow.className.includes('prev')) {
+       document.querySelector('.slideshow').style.cssText += `background-image: url(${images[currentIndex-1]})`
+       currentIndex = currentIndex-1
+       console.log(currentIndex)
+    } else if (arrow.className.includes('next') && currentIndex < images.length-1) {
+    if(currentIndex <= images.length-1){
+        document.querySelector('.slideshow').style.cssText += `background-image: url(${images[+currentIndex+1]})`
+    currentIndex = +currentIndex+1
+    }
+    } else if (arrow.className.includes('next') && currentIndex == images.length-1) {
+    document.querySelector('.slideshow').style.cssText += `background-image: url(${images[0]})`
+    currentIndex = 0
+}
+}))
